@@ -1,0 +1,40 @@
+linters:
+  enable-all: true
+  disable:
+    - exhaustivestruct
+    - gomnd
+    - dupl
+    - lll
+    - godot
+    - varnamelen
+    # Deprecated
+    - gci
+    - scopelint
+    - interfacer
+    - maligned
+    - golint
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/Batyachelly/goBoard
+  gofumpt:
+    lang-version: "1.17"
+
+issues:
+  exclude-rules:
+    - path: app/cmd
+      linters:
+        - gochecknoglobals
+        - gochecknoinits
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+        - gochecknoglobals
+        - wsl
+        - noctx
+        - funlen
+        - containedctx
+        - errchkjson
